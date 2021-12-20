@@ -1,7 +1,7 @@
 /// <reference types="cypress" />
 
 // @ts-check
-const debug = require('debug')('cypress-testrail-simple')
+const debug = require('debug')('cypress-testrail-simple-upgraded')
 const got = require('got')
 const {
   hasConfig,
@@ -35,15 +35,15 @@ async function sendTestResults(testRailInfo, runId, testResults) {
 }
 
 /**
- * Registers the cypress-testrail-simple plugin.
+ * Registers the cypress-testrail-simple-upgraded plugin.
  * @example
  *  module.exports = (on, config) => {
- *   require('cypress-testrail-simple/src/plugin')(on)
+ *   require('cypress-testrail-simple-upgraded/src/plugin')(on)
  *  }
  * @example
  *  Skip the plugin
  *  module.exports = (on, config) => {
- *   require('cypress-testrail-simple/src/plugin')(on, true)
+ *   require('cypress-testrail-simple-upgraded/src/plugin')(on, true)
  *  }
  * @param {Cypress.PluginEvents} on Event registration function from Cypress
  * @param {Boolean} skipPlugin If true, skips loading the plugin. Defaults to false
@@ -55,7 +55,7 @@ function registerPlugin(on, skipPlugin = false) {
   }
 
   if (!hasConfig(process.env)) {
-    debug('cypress-testrail-simple env variables are not set')
+    debug('cypress-testrail-simple-upgraded env variables are not set')
     return
   }
 
@@ -80,9 +80,7 @@ function registerPlugin(on, skipPlugin = false) {
       const testRailCaseReg = /C(\d+)\s/
       // only look at the test name, not at the suite titles
       const testName = result.title[result.title.length - 1]
-      if (testRailCaseReg.test(testName) && result.state != 'pending') {
-        const testRailResult = {
-          case_id: parseInt(testRailCaseReg.exec(testName)[1]),
+      if (testRailCaseReg.test(testName)) {
           // TestRail status
           // Passed = 1,
           // Blocked = 2,
@@ -91,7 +89,28 @@ function registerPlugin(on, skipPlugin = false) {
           // Failed = 5,
           // TODO: map all Cypress test states into TestRail status
           // https://glebbahmutov.com/blog/cypress-test-statuses/
-          status_id: result.state === 'passed' ? 1 : 5,
+
+        let testrail_status;
+        
+        switch (result.state) {
+          case 'passed':
+            testrail_status = 1;
+            break;
+          case 'pending':
+            testrail_status = 3;
+            break;
+          case 'failed':
+            testrail_status = 5;
+            break;
+          case 'skipped':
+            testrail_status = 3;
+            break;
+        }
+        
+        const testRailResult = {
+          case_id: parseInt(testRailCaseReg.exec(testName)[1]),
+
+          status_id: testrail_status,
         }
         testRailResults.push(testRailResult)
       }

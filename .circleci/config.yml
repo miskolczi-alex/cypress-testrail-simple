@@ -24,7 +24,7 @@ workflows:
             echo "Saved file runId.txt"
             cat runId.txt
 
-      # cypress-testrail-simple automatically tries to read
+      # cypress-testrail-simple-upgraded automatically tries to read
       # the TestRail run ID from the file runId.txt
       - cypress/run:
           requires:

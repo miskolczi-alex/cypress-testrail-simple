@@ -1,5 +1,5 @@
-# cypress-testrail-simple
-[![cypress-testrail-simple](https://img.shields.io/endpoint?url=https://dashboard.cypress.io/badge/simple/41cgid/main&style=flat&logo=cypress)](https://dashboard.cypress.io/projects/41cgid/runs) [![ci](https://github.com/bahmutov/cypress-testrail-simple/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/bahmutov/cypress-testrail-simple/actions/workflows/ci.yml) [![CircleCI](https://circleci.com/gh/bahmutov/cypress-testrail-simple/tree/main.svg?style=svg)](https://circleci.com/gh/bahmutov/cypress-testrail-simple/tree/main) ![cypress version](https://img.shields.io/badge/cypress-9.1.1-brightgreen) [![renovate-app badge][renovate-badge]][renovate-app]
+# cypress-testrail-simple-upgraded
+[![cypress-testrail-simple-upgraded](https://img.shields.io/endpoint?url=https://dashboard.cypress.io/badge/simple/41cgid/main&style=flat&logo=cypress)](https://dashboard.cypress.io/projects/41cgid/runs) [![ci](https://github.com/miskolczi-alex/cypress-testrail-simple/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/miskolczi-alex/cypress-testrail-simple/actions/workflows/ci.yml) [![CircleCI](https://circleci.com/gh/bahmutov/cypress-testrail-simple-upgraded/tree/main.svg?style=svg)](https://circleci.com/gh/bahmutov/cypress-testrail-simple-upgraded/tree/main) ![cypress version](https://img.shields.io/badge/cypress-9.1.1-brightgreen) [![renovate-app badge][renovate-badge]][renovate-app]
 > Simple upload of Cypress test results to TestRail
 
 Read the blog post [Cypress And TestRail](https://glebbahmutov.com/blog/cypress-and-testrail/)
@@ -10,9 +10,9 @@ Add this plugin as a dev dependency
 
 ```
 # If using NPM
-$ npm i -D cypress-testrail-simple
+$ npm i -D cypress-testrail-simple-upgraded
 # If using Yarn
-$ yarn add -D cypress-testrail-simple
+$ yarn add -D cypress-testrail-simple-upgraded
 ```
 
 Add the plugin to your Cypress plugin file
@@ -20,8 +20,8 @@ Add the plugin to your Cypress plugin file
 ```js
 // cypress/plugins/index.js
 module.exports = (on, config) => {
-  // https://github.com/bahmutov/cypress-testrail-simple
-  require('cypress-testrail-simple/src/plugin')(on)
+  // https://github.com/miskolczi-alex/cypress-testrail-simple
+  require('cypress-testrail-simple-upgraded/src/plugin')(on)
 }
 ```
 
@@ -44,7 +44,7 @@ If these variables are present, we assume the user wants to use the plugin. You 
 ```js
 module.exports = (on, config) => {
   // skip loading the plugin
-  require('cypress-testrail-simple/src/plugin')(on, true)
+  require('cypress-testrail-simple-upgraded/src/plugin')(on, true)
 }
 ```
 
@@ -111,7 +111,7 @@ During `cypress run` the plugin can send test results for each test case found i
 
 ## Debugging
 
-This tool uses [debug](https://github.com/visionmedia/debug#readme) to output verbose logs. To see the logs, run it with environment variable `DEBUG=cypress-testrail-simple`.
+This tool uses [debug](https://github.com/visionmedia/debug#readme) to output verbose logs. To see the logs, run it with environment variable `DEBUG=cypress-testrail-simple-upgraded`.
 
 ## Why?
 
@@ -131,7 +131,7 @@ Author: Gleb Bahmutov &lt;gleb.bahmutov@gmail.com&gt; &copy; 2021
 License: MIT - do anything with the code, but don't blame me if it does not work.
 
 Support: if you find any problems with this module, email / tweet /
-[open issue](https://github.com/bahmutov/cypress-testrail-simple/issues) on Github
+[open issue](https://github.com/miskolczi-alex/cypress-testrail-simple/issues) on Github
 
 ## MIT License
 

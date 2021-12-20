@@ -55,7 +55,7 @@ jobs:
         env:
           TESTRAIL_RUN_ID: ${{ steps.testRail.outputs.runId }}
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
-          # DEBUG: cypress-testrail-simple
+          # DEBUG: cypress-testrail-simple-upgraded
 
       - name: Close TestRail Run 🏁
         # always close the test run, even if the previous steps have failed

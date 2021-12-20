@@ -1,5 +1,5 @@
 // @ts-check
-const debug = require('debug')('cypress-testrail-simple')
+const debug = require('debug')('cypress-testrail-simple-upgraded')
 const fs = require('fs')
 const path = require('path')
 
@@ -13,7 +13,7 @@ function hasConfig(env = process.env) {
 }
 
 function getTestRailConfig(env = process.env) {
-  const debug = require('debug')('cypress-testrail-simple')
+  const debug = require('debug')('cypress-testrail-simple-upgraded')
 
   if (!env.TESTRAIL_HOST) {
     throw new Error('TESTRAIL_HOST is required')

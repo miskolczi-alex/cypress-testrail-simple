@@ -1,6 +1,6 @@
 // @ts-check
 
-const debug = require('debug')('cypress-testrail-simple')
+const debug = require('debug')('cypress-testrail-simple-upgraded')
 const got = require('got')
 const { getAuthorization } = require('./get-config')
 

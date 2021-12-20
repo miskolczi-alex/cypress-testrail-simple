@@ -2,7 +2,7 @@ const fs = require('fs')
 
 function findCasesInSpec(spec) {
   const source = fs.readFileSync(spec, 'utf8')
-  const matches = source.match(/it\('C\d+/g)
+  const matches = source.match(/C\d+/g)
   if (!matches) {
     // no case Ids found
     return []
