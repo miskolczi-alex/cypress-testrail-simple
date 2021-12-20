@@ -80,7 +80,7 @@ function registerPlugin(on, skipPlugin = false) {
       const testRailCaseReg = /C(\d+)\s/
       // only look at the test name, not at the suite titles
       const testName = result.title[result.title.length - 1]
-      if (testRailCaseReg.test(testName)) {
+      if (testRailCaseReg.test(testName) && result.state != 'pending') {
           // TestRail status
           // Passed = 1,
           // Blocked = 2,
@@ -95,9 +95,6 @@ function registerPlugin(on, skipPlugin = false) {
         switch (result.state) {
           case 'passed':
             testrail_status = 1;
-            break;
-          case 'pending':
-            testrail_status = 3;
             break;
           case 'failed':
             testrail_status = 5;
