@@ -103,7 +103,7 @@ function registerPlugin(on, skipPlugin = false) {
             testrail_status = 5;
             break;
           case 'skipped':
-            testrail_status = 3;
+            testrail_status = 2;
             break;
         }
         
