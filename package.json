@@ -1,5 +1,5 @@
 {
-  "name": "cypress-testrail-simple",
+  "name": "cypress-testrail-simple-upgraded",
   "version": "0.0.0-development",
   "description": "Simple upload of Cypress test results to TestRail",
   "main": "index.js",
@@ -17,7 +17,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/bahmutov/cypress-testrail-simple.git"
+    "url": "https://github.com/miskolczi-alex/cypress-testrail-simple.git"
   },
   "keywords": [
     "cypress",
@@ -29,9 +29,9 @@
   "author": "Gleb Bahmutov <gleb.bahmutov@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/bahmutov/cypress-testrail-simple/issues"
+    "url": "https://github.com/miskolczi-alex/cypress-testrail-simple/issues"
   },
-  "homepage": "https://github.com/bahmutov/cypress-testrail-simple#readme",
+  "homepage": "https://github.com/miskolczi-alex/cypress-testrail-simple#readme",
   "devDependencies": {
     "cypress": "9.1.1",
     "semantic-release": "^18.0.0"
